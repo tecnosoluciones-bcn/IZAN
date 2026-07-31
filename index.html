@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Web especial dedicada a Izan: fútbol, básquet, estilo, coches, música y un mensaje bonito hecho con amor." />
+  <title>Para Izan · Mi niño amado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --white: #ffffff;
+      --black: #050505;
+      --ink: #121212;
+      --muted: #6f6f6f;
+      --line: rgba(0, 0, 0, 0.10);
+      --soft: rgba(255, 255, 255, 0.76);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.16);
+      --shadow-soft: 0 18px 55px rgba(0, 0, 0, 0.10);
+      --blue: #004d98;
+      --red: #a50044;
+      --gold: #d7aa4d;
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 10%, rgba(0, 77, 152, 0.14), transparent 28%),
+        radial-gradient(circle at 92% 8%, rgba(165, 0, 68, 0.12), transparent 30%),
+        radial-gradient(circle at 78% 86%, rgba(215, 170, 77, 0.16), transparent 34%),
+        linear-gradient(135deg, #ffffff 0%, #f4f4f1 48%, #e8e8e4 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.3;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      z-index: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 34px));
+      margin: 0 auto;
+    }
+
+    .decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .decor span {
+      position: absolute;
+      color: rgba(0, 0, 0, 0.07);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(5rem, 16vw, 16rem);
+      line-height: 1;
+      user-select: none;
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .decor .d1 { top: 8%; left: -1rem; }
+    .decor .d2 { top: 30%; right: -1rem; animation-delay: 2s; }
+    .decor .d3 { bottom: 2%; left: 8%; animation-delay: 4s; }
+    .decor .d4 { bottom: 12%; right: 10%; animation-delay: 6s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-22px) rotate(3deg); }
+    }
+
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      width: min(calc(100% - 28px), 980px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.72rem 0.85rem 0.72rem 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.10);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, var(--black), #373737);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 0.64rem 0.88rem;
+      border-radius: 999px;
+      color: #555;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: background 0.22s ease, color 0.22s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0,0,0,0.07);
+      color: var(--black);
+    }
+
+    .music-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 0.72rem 1rem;
+      color: #fff;
+      background: linear-gradient(135deg, var(--black), #333);
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .music-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 8.6rem 0 4.2rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+      padding: 0.62rem 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.70);
+      color: #242424;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .hero h1 {
+      max-width: 820px;
+      color: var(--black);
+      font-size: clamp(5.5rem, 14vw, 13rem);
+      line-height: 0.78;
+    }
+
+    .hero h1 .outline {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--black);
+      text-stroke: 1.5px var(--black);
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin-top: 1.3rem;
+      color: #4f4f4f;
+      font-size: clamp(1.02rem, 1.45vw, 1.2rem);
+      line-height: 1.82;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.72rem 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: #1e1e1e;
+      font-size: 0.9rem;
+      font-weight: 850;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0.92rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--black), #3b3b3b);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.20);
+    }
+
+    .btn-secondary {
+      color: var(--black);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.08);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 58px rgba(0,0,0,0.18);
+    }
+
+    .hero-stage {
+      position: relative;
+      min-height: 680px;
+    }
+
+    .photo {
+      position: absolute;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.86);
+      background: white;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.24), transparent 44%);
+      pointer-events: none;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .photo-main {
+      width: 78%;
+      height: 82%;
+      top: 0;
+      right: 0;
+      border-radius: 42px;
+    }
+
+    .photo-small {
+      width: 50%;
+      height: 42%;
+      left: 0;
+      bottom: 4%;
+      border: 10px solid white;
+      border-radius: 32px;
+      transform: rotate(-4deg);
+    }
+
+    .stat-card {
+      position: absolute;
+      right: 5%;
+      bottom: 9%;
+      max-width: 280px;
+      padding: 1rem 1.05rem;
+      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.76);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 55px rgba(0,0,0,0.16);
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+      font-weight: 950;
+    }
+
+    .stat-card span {
+      color: #5b5b5b;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .barca-line {
+      height: 6px;
+      width: 100%;
+      margin-top: 1rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--red), var(--gold));
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(4.6rem, 8vw, 7.4rem) 0;
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin: 0 auto 2.6rem;
+      text-align: center;
+    }
+
+    .overline {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      color: #565656;
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      color: var(--black);
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      line-height: 0.86;
+    }
+
+    .section-heading p {
+      margin-top: 1rem;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    .letter-layout {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .side-panel {
+      position: sticky;
+      top: 105px;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.78);
+      background: rgba(255,255,255,0.72);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .side-panel img {
+      height: 560px;
+      object-fit: cover;
+    }
+
+    .side-panel-caption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      padding: 1rem;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      color: #111;
+      font-weight: 900;
+    }
+
+    .letter {
+      position: relative;
+      padding: clamp(1.5rem, 4vw, 3.3rem);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.82);
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(247,247,245,0.78));
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .letter::before {
+      content: "IZAN";
+      position: absolute;
+      top: -1.1rem;
+      right: -0.2rem;
+      color: rgba(0,0,0,0.045);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(8rem, 18vw, 17rem);
+      line-height: 0.8;
+    }
+
+    .letter p {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.15rem;
+      color: #303030;
+      font-size: clamp(1rem, 1.25vw, 1.08rem);
+      line-height: 1.95;
+    }
+
+    .letter strong {
+      color: #000;
+      font-weight: 950;
+    }
+
+    .quote {
+      position: relative;
+      z-index: 1;
+      margin: 2rem 0;
+      padding: 1.3rem 1.45rem;
+      border-left: 5px solid #000;
+      border-radius: 0 24px 24px 0;
+      background: rgba(0,0,0,0.045);
+      color: #000;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+    }
+
+    .passions-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    .passion-card {
+      position: relative;
+      min-height: 240px;
+      grid-column: span 2;
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.72);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 0.26s ease, box-shadow 0.26s ease;
+    }
+
+    .passion-card.wide {
+      grid-column: span 3;
+    }
+
+    .passion-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.15);
+    }
+
+    .passion-card::after {
+      content: attr(data-big);
+      position: absolute;
+      right: -0.25rem;
+      bottom: -0.8rem;
+      color: rgba(0,0,0,0.05);
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 8rem;
+      line-height: 0.8;
+    }
+
+    .passion-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      border-radius: 18px;
+      color: #fff;
+      background: #000;
+      font-size: 1.65rem;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+    }
+
+    .passion-card h3 {
+      margin-bottom: 0.7rem;
+      color: #000;
+      font-size: 1.28rem;
+      font-weight: 950;
+      letter-spacing: -0.035em;
+    }
+
+    .passion-card p {
+      position: relative;
+      z-index: 1;
+      color: #656565;
+      line-height: 1.76;
+      font-size: 0.96rem;
+    }
+
+    .gallery-tools {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      margin: -0.4rem 0 2rem;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.74rem 1rem;
+      background: rgba(255,255,255,0.72);
+      color: #585858;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+      transition: background 0.24s ease, color 0.24s ease, transform 0.24s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: #fff;
+      background: #000;
+      transform: translateY(-2px);
+    }
+
+    .gallery {
+      columns: 4 240px;
+      column-gap: 1rem;
+    }
+
+    .memory-card {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 1rem;
+      break-inside: avoid;
+      overflow: hidden;
+      border: 8px solid rgba(255,255,255,0.92);
+      border-radius: 28px;
+      background: white;
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .memory-card.hidden {
+      display: none;
+    }
+
+    .memory-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 30px 76px rgba(0,0,0,0.18);
+    }
+
+    .memory-card img {
+      height: auto;
+      transition: transform 0.45s ease, filter 0.45s ease;
+    }
+
+    .memory-card:hover img {
+      transform: scale(1.05);
+      filter: saturate(1.06) contrast(1.03);
+    }
+
+    .memory-card figcaption {
+      position: absolute;
+      left: 0.8rem;
+      right: 0.8rem;
+      bottom: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.78rem 0.9rem;
+      border-radius: 18px;
+      color: #111;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.24s ease, transform 0.24s ease;
+      font-size: 0.84rem;
+      font-weight: 950;
+    }
+
+    .memory-card:hover figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .final-card {
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 1.4rem;
+      align-items: center;
+      padding: clamp(1.4rem, 4vw, 3.2rem);
+      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: 42px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(238,238,235,0.74));
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .final-card h2 {
+      color: #000;
+      font-size: clamp(3.2rem, 8vw, 7.4rem);
+      line-height: 0.84;
+    }
+
+    .final-card p {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.86;
+    }
+
+    .final-photo {
+      min-height: 440px;
+      overflow: hidden;
+      border: 10px solid rgba(255,255,255,0.86);
+      border-radius: 34px;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.14);
+    }
+
+    .final-photo img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(0,0,0,0.86);
+      backdrop-filter: blur(14px);
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(1040px, 95vw);
+      max-height: 86vh;
+      object-fit: contain;
+      border: 10px solid #fff;
+      border-radius: 30px;
+      background: #fff;
+      box-shadow: 0 34px 100px rgba(0,0,0,0.42);
+    }
+
+    .lightbox-close,
+    .lightbox-arrow {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      box-shadow: 0 16px 42px rgba(0,0,0,0.22);
+      cursor: pointer;
+      transition: transform 0.22s ease, background 0.22s ease;
+    }
+
+    .lightbox-close {
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      font-size: 1.5rem;
+      font-weight: 950;
+    }
+
+    .lightbox-arrow {
+      top: 50%;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      font-size: 1.8rem;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-arrow.prev { left: 1.2rem; }
+    .lightbox-arrow.next { right: 1.2rem; }
+
+    footer {
+      position: relative;
+      padding: 3rem 0 4rem;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .signature {
+      margin-top: 0.4rem;
+      color: #000;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1020px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .letter-layout,
+      .final-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stage {
+        min-height: 610px;
+      }
+
+      .side-panel {
+        position: relative;
+        top: auto;
+      }
+
+      .passion-card,
+      .passion-card.wide {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .nav {
+        top: 12px;
+        width: min(calc(100% - 18px), 560px);
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .music-btn {
+        padding: 0.68rem 0.9rem;
+        font-size: 0.82rem;
+      }
+
+      .hero {
+        padding-top: 7.3rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(5rem, 24vw, 8rem);
+      }
+
+      .hero-stage {
+        min-height: 510px;
+      }
+
+      .photo-main {
+        width: 84%;
+        height: 72%;
+        border-radius: 32px;
+      }
+
+      .photo-small {
+        width: 60%;
+        height: 38%;
+        border-radius: 28px;
+      }
+
+      .stat-card {
+        right: 0.7rem;
+        bottom: 0.7rem;
+      }
+
+      .passions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .passion-card,
+      .passion-card.wide {
+        grid-column: span 1;
+      }
+
+      .gallery {
+        columns: 1;
+      }
+
+      .memory-card figcaption {
+        opacity: 1;
+        transform: none;
+      }
+
+      .lightbox-arrow {
+        top: auto;
+        bottom: 1rem;
+        width: 44px;
+        height: 44px;
+        transform: none;
+      }
+
+      .lightbox-arrow.prev { left: calc(50% - 58px); }
+      .lightbox-arrow.next { right: calc(50% - 58px); }
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="bgMusic" loop>
+    <source src="musica-izan.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="decor" aria-hidden="true">
+    <span class="d1">10</span>
+    <span class="d2">FCB</span>
+    <span class="d3">HOOP</span>
+    <span class="d4">STYLE</span>
+  </div>
+
+  <nav class="nav" aria-label="Navegación principal">
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">I</span>
+      <span>Para Izan</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#mensaje">Mensaje</a>
+      <a href="#pasiones">Pasiones</a>
+      <a href="#galeria">Recuerdos</a>
+      <a href="#cierre">Final</a>
+    </div>
+
+    <button class="music-btn" id="musicBtn" type="button">Música ▶</button>
+  </nav>
+
+  <main class="site">
+    <header class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="kicker">⚽ Mensaje especial · No cumpleaños</span>
+          <h1>Para <span class="outline">Izan</span></h1>
+
+          <p class="hero-copy">
+            Una web moderna, elegante y hecha con cariño para guardar lo que eres:
+            un niño noble, especial, con personalidad, corazón grande y una luz que se nota en cada etapa.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">⚽ Barcelona</span>
+            <span class="tag">🏀 Básquet</span>
+            <span class="tag">🎧 Paulo Londra</span>
+            <span class="tag">⌚ Relojes</span>
+            <span class="tag">👟 Estilo</span>
+            <span class="tag">🏎️ Coches</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#mensaje">Leer mensaje</a>
+            <a class="btn btn-secondary" href="#galeria">Ver recuerdos</a>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal" aria-label="Fotos destacadas de Izan">
+          <figure class="photo photo-main">
+            <img src="izan1.png" alt="Foto principal de Izan" onerror="this.src='isisyizan4.png'" />
+          </figure>
+
+          <figure class="photo photo-small">
+            <img src="izan2.png" alt="Izan de pequeño" onerror="this.src='isisyizan2.png'" />
+          </figure>
+
+          <div class="stat-card">
+            <strong>Mi niño amado</strong>
+            <span>Noble, especial, con estilo propio y un corazón que vale oro.</span>
+            <div class="barca-line"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="mensaje">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="overline">Carta para ti</span>
+          <h2>Mi Izan</h2>
+          <p>Un mensaje para recordarte lo valioso que eres, sin esperar una fecha especial.</p>
+        </div>
+
+        <div class="letter-layout">
+          <aside class="side-panel reveal">
+            <img src="izan3.png" alt="Izan en una foto especial" onerror="this.src='isisyizan1.png'" />
+            <div class="side-panel-caption">Una vida llena de recuerdos, valores y amor.</div>
+          </aside>
+
+          <article class="letter reveal">
+            <p><strong>Izan, mi niño amado,</strong> quiero que tengas este mensaje guardado como un recuerdo bonito, no porque sea un día especial, sino porque tú eres especial todos los días.</p>
+
+            <p>Desde que llegaste a mi vida, trajiste una forma de amor distinta: más tierna, más noble y más fuerte. Tienes una luz muy tuya, una manera de mirar, de sonreír y de estar presente que llena cualquier lugar de alegría.</p>
+
+            <p>Eres un niño con un corazón hermoso. Noble, sensible, cariñoso, inteligente y con una personalidad que cada día se va haciendo más grande. Me llena de orgullo verte crecer, verte aprender, verte descubrir lo que te gusta y ver cómo poco a poco vas construyendo tu propia forma de ser.</p>
+
+            <div class="quote">Nunca olvides lo mucho que vales.</div>
+
+            <p>Me encanta verte disfrutar del fútbol, sentir esa emoción por el Barcelona, vivir cada partido con ilusión y tener esa pasión que te hace vibrar. También me gusta ver cómo te llama la atención el básquet, la música, los relojes, los coches y la ropa con estilo. Todo eso habla de ti: de tus gustos, de tu personalidad y de esa forma tan tuya de mirar el mundo.</p>
+
+            <p>Como hijo, eres amor puro. Eres ese abrazo que calma, esa sonrisa que cambia el día y esa presencia que hace que todo tenga más sentido.</p>
+
+            <p>Como hermano, eres parte de una historia preciosa junto a Isis. Han crecido compartiendo risas, recuerdos, aprendizajes y momentos que se quedan para siempre. Tienes una hermana que te ama y se siente orgullosa de ti, y ella tiene la suerte de tener un hermano con un corazón noble y bonito.</p>
+
+            <p>Izan, quiero que siempre creas en ti. Que nunca dudes de tu valor, de tu inteligencia, de tu bondad ni de todo lo que puedes llegar a ser. La vida te irá enseñando muchas cosas, pero nunca pierdas tu esencia: esa nobleza, esa ternura y esa fuerza que te hacen único.</p>
+
+            <p><strong>Gracias por existir, por llenar mi vida de amor y por ser ese niño maravilloso que siempre llevaré en mi corazón. Te amo con todo mi corazón, hoy y siempre. 💙</strong></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pasiones">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="overline">Su mundo</span>
+          <h2>Pasiones y estilo</h2>
+          <p>Una parte de lo que le gusta a Izan: deporte, música, detalles, moda y personalidad.</p>
+        </div>
+
+        <div class="passions-grid">
+          <article class="passion-card wide reveal" data-big="FCB">
+            <div class="passion-icon">⚽</div>
+            <h3>Fútbol y Barcelona</h3>
+            <p>Pasión por el balón, los partidos y esa energía especial de vivir el fútbol con ilusión. Detalles blaugrana dentro de una web blanco y negro, sobria y moderna.</p>
+          </article>
+
+          <article class="passion-card wide reveal" data-big="NBA">
+            <div class="passion-icon">🏀</div>
+            <h3>Básquet</h3>
+            <p>Movimiento, precisión, actitud y juego en equipo. Una pasión que encaja con su forma de crecer: aprendiendo, mejorando y disfrutando.</p>
+          </article>
+
+          <article class="passion-card reveal" data-big="MUSIC">
+            <div class="passion-icon">🎧</div>
+            <h3>Paulo Londra</h3>
+            <p>Música con flow, calma y estilo. Inspiración urbana sin copiar letras, solo usando esa vibra moderna que conecta con él.</p>
+          </article>
+
+          <article class="passion-card reveal" data-big="TIME">
+            <div class="passion-icon">⌚</div>
+            <h3>Relojes</h3>
+            <p>Detalles que hablan de elegancia, personalidad y gusto por las cosas bien hechas.</p>
+          </article>
+
+          <article class="passion-card reveal" data-big="DRIP">
+            <div class="passion-icon">👟</div>
+            <h3>Ropa de calidad</h3>
+            <p>Buen gusto, marcas, prendas limpias y presencia. Un estilo que se nota sin necesidad de exagerar.</p>
+          </article>
+
+          <article class="passion-card reveal" data-big="CARS">
+            <div class="passion-icon">🏎️</div>
+            <h3>Coches</h3>
+            <p>Diseño, velocidad, potencia y sueños grandes. Una sección pensada para representar ambición y personalidad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="overline">Recuerdos</span>
+          <h2>Galería de Izan</h2>
+          <p>Coloca estas fotos en la misma carpeta que el HTML. Si tienes otros nombres en GitHub, cambia el valor de <strong>src</strong>.</p>
+        </div>
+
+        <div class="gallery-tools reveal" aria-label="Filtros de galería">
+          <button class="filter-btn active" type="button" data-filter="all">Todas</button>
+          <button class="filter-btn" type="button" data-filter="izan">Izan</button>
+          <button class="filter-btn" type="button" data-filter="hermanos">Hermanos</button>
+          <button class="filter-btn" type="button" data-filter="familia">Familia</button>
+          <button class="filter-btn" type="button" data-filter="infancia">Infancia</button>
+        </div>
+
+        <div class="gallery reveal" id="gallery">
+          <figure class="memory-card" data-category="izan"><img src="izan1.png" alt="Izan actual" onerror="this.src='isisyizan4.png'" /><figcaption><span>Izan</span><span>⚽</span></figcaption></figure>
+          <figure class="memory-card" data-category="izan infancia"><img src="izan2.png" alt="Izan de pequeño" onerror="this.src='isisyizan2.png'" /><figcaption><span>Infancia</span><span>💙</span></figcaption></figure>
+          <figure class="memory-card" data-category="izan"><img src="izan3.png" alt="Izan en una foto especial" onerror="this.src='isisyizan1.png'" /><figcaption><span>Izan</span><span>🏀</span></figcaption></figure>
+          <figure class="memory-card" data-category="hermanos"><img src="isisyizan1.png" alt="Izan con Isis en la montaña" /><figcaption><span>Hermanos</span><span>🤍</span></figcaption></figure>
+          <figure class="memory-card" data-category="hermanos infancia"><img src="isisyizan2.png" alt="Izan con Isis de pequeños" /><figcaption><span>Hermanos</span><span>✨</span></figcaption></figure>
+          <figure class="memory-card" data-category="hermanos infancia"><img src="isisyizan3.png" alt="Izan con Isis cuando eran niños" /><figcaption><span>Infancia</span><span>📸</span></figcaption></figure>
+          <figure class="memory-card" data-category="hermanos"><img src="isisyizan4.png" alt="Izan con Isis con camisetas de fútbol" /><figcaption><span>Fútbol</span><span>⚽</span></figcaption></figure>
+          <figure class="memory-card" data-category="hermanos"><img src="isisyizan5.png" alt="Izan con Isis en selfie" /><figcaption><span>Hermanos</span><span>🤍</span></figcaption></figure>
+          <figure class="memory-card" data-category="familia"><img src="familia1.png" alt="Izan con familia" /><figcaption><span>Familia</span><span>🌿</span></figcaption></figure>
+          <figure class="memory-card" data-category="familia"><img src="familia2.png" alt="Izan con familia en selfie" /><figcaption><span>Familia</span><span>💙</span></figcaption></figure>
+          <figure class="memory-card" data-category="familia"><img src="familia3.png" alt="Izan con familia en Montserrat" /><figcaption><span>Familia</span><span>⛰️</span></figcaption></figure>
+          <figure class="memory-card" data-category="izan"><img src="izan4.png" alt="Foto de Izan" onerror="this.src='isisyizan5.png'" /><figcaption><span>Izan</span><span>⌚</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cierre">
+      <div class="container">
+        <div class="final-card reveal">
+          <div>
+            <span class="kicker">💙 Hoy y siempre</span>
+            <h2>Crece, sueña y nunca pierdas tu esencia.</h2>
+            <p>
+              Izan, esta web es un recordatorio de lo importante que eres. Que la vida te lleve lejos, pero que siempre conserves tu nobleza, tu sonrisa y ese corazón tan bonito que te hace único.
+            </p>
+          </div>
+
+          <figure class="final-photo">
+            <img src="familia3.png" alt="Foto familiar final" />
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Hecho con amor para Izan.</p>
+      <div class="signature">Te amo siempre</div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" id="closeLightbox" aria-label="Cerrar imagen">×</button>
+    <button class="lightbox-arrow prev" type="button" id="prevImage" aria-label="Imagen anterior">‹</button>
+    <img id="lightboxImage" src="" alt="Foto ampliada" />
+    <button class="lightbox-arrow next" type="button" id="nextImage" aria-label="Imagen siguiente">›</button>
+  </div>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
+    musicBtn.addEventListener("click", async () => {
+      try {
+        if (music.paused) {
+          await music.play();
+          musicBtn.textContent = "Música ⏸";
+        } else {
+          music.pause();
+          musicBtn.textContent = "Música ▶";
+        }
+      } catch (error) {
+        musicBtn.textContent = "Sube musica-izan.mp3";
+      }
+    });
+
+    const revealElements = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const memoryCards = Array.from(document.querySelectorAll(".memory-card"));
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        memoryCards.forEach((card) => {
+          const categories = card.dataset.category.split(" ");
+          const shouldShow = filter === "all" || categories.includes(filter);
+          card.classList.toggle("hidden", !shouldShow);
+        });
+      });
+    });
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+    const prevImage = document.getElementById("prevImage");
+    const nextImage = document.getElementById("nextImage");
+    let activeIndex = 0;
+
+    function visibleCards() {
+      return memoryCards.filter((card) => !card.classList.contains("hidden"));
+    }
+
+    function openImage(index) {
+      const cards = visibleCards();
+      if (!cards.length) return;
+
+      activeIndex = (index + cards.length) % cards.length;
+      const img = cards[activeIndex].querySelector("img");
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImage() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    memoryCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const cards = visibleCards();
+        openImage(cards.indexOf(card));
+      });
+    });
+
+    closeLightbox.addEventListener("click", closeImage);
+    prevImage.addEventListener("click", () => openImage(activeIndex - 1));
+    nextImage.addEventListener("click", () => openImage(activeIndex + 1));
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeImage();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("active")) return;
+      if (event.key === "Escape") closeImage();
+      if (event.key === "ArrowLeft") openImage(activeIndex - 1);
+      if (event.key === "ArrowRight") openImage(activeIndex + 1);
+    });
+  </script>
+</body>
+</html>
