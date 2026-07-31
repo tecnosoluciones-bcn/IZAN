@@ -15,10 +15,10 @@
       --bg: #f7f7f5;
       --white: #ffffff;
       --black: #050505;
-      --ink: #121212;
-      --muted: #6f6f6f;
-      --line: rgba(0, 0, 0, 0.10);
-      --soft: rgba(255, 255, 255, 0.76);
+      --ink: #151515;
+      --muted: #686868;
+      --line: rgba(0, 0, 0, 0.11);
+      --glass: rgba(255, 255, 255, 0.72);
       --shadow: 0 28px 90px rgba(0, 0, 0, 0.16);
       --shadow-soft: 0 18px 55px rgba(0, 0, 0, 0.10);
       --blue: #004d98;
@@ -26,7 +26,6 @@
       --gold: #d7aa4d;
       --radius-xl: 34px;
       --radius-lg: 24px;
-      --radius-md: 16px;
       --max: 1180px;
     }
 
@@ -56,6 +55,7 @@
       content: "";
       position: fixed;
       inset: 0;
+      z-index: 0;
       pointer-events: none;
       opacity: 0.3;
       background-image:
@@ -63,7 +63,6 @@
         linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
       background-size: 42px 42px;
       mask-image: linear-gradient(to bottom, black, transparent 78%);
-      z-index: 0;
     }
 
     img {
@@ -76,22 +75,22 @@
       color: inherit;
     }
 
+    .container {
+      width: min(var(--max), calc(100% - 34px));
+      margin: 0 auto;
+    }
+
     .site {
       position: relative;
       z-index: 1;
       overflow: hidden;
     }
 
-    .container {
-      width: min(var(--max), calc(100% - 34px));
-      margin: 0 auto;
-    }
-
     .decor {
       position: fixed;
       inset: 0;
-      pointer-events: none;
       z-index: 0;
+      pointer-events: none;
       overflow: hidden;
     }
 
@@ -119,7 +118,6 @@
       position: fixed;
       top: 18px;
       left: 50%;
-      transform: translateX(-50%);
       z-index: 50;
       width: min(calc(100% - 28px), 980px);
       display: flex;
@@ -132,6 +130,7 @@
       background: rgba(255, 255, 255, 0.68);
       box-shadow: 0 18px 55px rgba(0, 0, 0, 0.10);
       backdrop-filter: blur(18px);
+      transform: translateX(-50%);
     }
 
     .brand {
@@ -150,7 +149,7 @@
       display: grid;
       place-items: center;
       border-radius: 999px;
-      color: white;
+      color: #fff;
       background: linear-gradient(135deg, var(--black), #373737);
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
     }
@@ -188,6 +187,7 @@
       cursor: pointer;
       box-shadow: 0 12px 28px rgba(0,0,0,0.18);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
+      white-space: nowrap;
     }
 
     .music-btn:hover {
@@ -196,11 +196,11 @@
     }
 
     .hero {
+      position: relative;
       min-height: 100vh;
       display: grid;
       align-items: center;
       padding: 8.6rem 0 4.2rem;
-      position: relative;
     }
 
     .hero-grid {
@@ -227,7 +227,8 @@
       text-transform: uppercase;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       font-family: "Bebas Neue", sans-serif;
       font-weight: 400;
       letter-spacing: -0.035em;
@@ -729,6 +730,7 @@
     }
 
     .lightbox img {
+      width: auto;
       max-width: min(1040px, 95vw);
       max-height: 86vh;
       object-fit: contain;
@@ -748,7 +750,6 @@
       color: #000;
       box-shadow: 0 16px 42px rgba(0,0,0,0.22);
       cursor: pointer;
-      transition: transform 0.22s ease, background 0.22s ease;
     }
 
     .lightbox-close {
@@ -775,6 +776,7 @@
 
     footer {
       position: relative;
+      z-index: 1;
       padding: 3rem 0 4rem;
       text-align: center;
       color: var(--muted);
@@ -906,7 +908,7 @@
 </head>
 
 <body>
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop preload="none">
     <source src="musica-izan.mp3" type="audio/mpeg" />
   </audio>
 
@@ -948,7 +950,7 @@
           <div class="hero-tags">
             <span class="tag">⚽ Barcelona</span>
             <span class="tag">🏀 Básquet</span>
-            <span class="tag">🎧 Paulo Londra</span>
+            <span class="tag">🎧 Música urbana</span>
             <span class="tag">⌚ Relojes</span>
             <span class="tag">👟 Estilo</span>
             <span class="tag">🏎️ Coches</span>
@@ -962,11 +964,11 @@
 
         <div class="hero-stage reveal" aria-label="Fotos destacadas de Izan">
           <figure class="photo photo-main">
-            <img src="izan1.png" alt="Foto principal de Izan" onerror="this.src='isisyizan4.png'" />
+            <img src="izan1.png" alt="Foto principal de Izan" />
           </figure>
 
           <figure class="photo photo-small">
-            <img src="izan2.png" alt="Izan de pequeño" onerror="this.src='isisyizan2.png'" />
+            <img src="izan2.png" alt="Izan de pequeño" />
           </figure>
 
           <div class="stat-card">
@@ -988,7 +990,7 @@
 
         <div class="letter-layout">
           <aside class="side-panel reveal">
-            <img src="izan3.png" alt="Izan en una foto especial" onerror="this.src='isisyizan1.png'" />
+            <img src="izan3.png" alt="Izan en una foto especial" />
             <div class="side-panel-caption">Una vida llena de recuerdos, valores y amor.</div>
           </aside>
 
@@ -1038,8 +1040,8 @@
 
           <article class="passion-card reveal" data-big="MUSIC">
             <div class="passion-icon">🎧</div>
-            <h3>Paulo Londra</h3>
-            <p>Música con flow, calma y estilo. Inspiración urbana sin copiar letras, solo usando esa vibra moderna que conecta con él.</p>
+            <h3>Música urbana</h3>
+            <p>Una vibra moderna, tranquila y con flow. Música para acompañar recuerdos, momentos y personalidad.</p>
           </article>
 
           <article class="passion-card reveal" data-big="TIME">
@@ -1068,7 +1070,7 @@
         <div class="section-heading reveal">
           <span class="overline">Recuerdos</span>
           <h2>Galería de Izan</h2>
-          <p>Coloca estas fotos en la misma carpeta que el HTML. Si tienes otros nombres en GitHub, cambia el valor de <strong>src</strong>.</p>
+          <p>Coloca estas fotos en la misma carpeta que el HTML. Si las tienes en una carpeta llamada <strong>img</strong>, cambia cada ruta por <strong>img/nombre.png</strong>.</p>
         </div>
 
         <div class="gallery-tools reveal" aria-label="Filtros de galería">
@@ -1080,9 +1082,9 @@
         </div>
 
         <div class="gallery reveal" id="gallery">
-          <figure class="memory-card" data-category="izan"><img src="izan1.png" alt="Izan actual" onerror="this.src='isisyizan4.png'" /><figcaption><span>Izan</span><span>⚽</span></figcaption></figure>
-          <figure class="memory-card" data-category="izan infancia"><img src="izan2.png" alt="Izan de pequeño" onerror="this.src='isisyizan2.png'" /><figcaption><span>Infancia</span><span>💙</span></figcaption></figure>
-          <figure class="memory-card" data-category="izan"><img src="izan3.png" alt="Izan en una foto especial" onerror="this.src='isisyizan1.png'" /><figcaption><span>Izan</span><span>🏀</span></figcaption></figure>
+          <figure class="memory-card" data-category="izan"><img src="izan1.png" alt="Izan actual" /><figcaption><span>Izan</span><span>⚽</span></figcaption></figure>
+          <figure class="memory-card" data-category="izan infancia"><img src="izan2.png" alt="Izan de pequeño" /><figcaption><span>Infancia</span><span>💙</span></figcaption></figure>
+          <figure class="memory-card" data-category="izan"><img src="izan3.png" alt="Izan en una foto especial" /><figcaption><span>Izan</span><span>🏀</span></figcaption></figure>
           <figure class="memory-card" data-category="hermanos"><img src="isisyizan1.png" alt="Izan con Isis en la montaña" /><figcaption><span>Hermanos</span><span>🤍</span></figcaption></figure>
           <figure class="memory-card" data-category="hermanos infancia"><img src="isisyizan2.png" alt="Izan con Isis de pequeños" /><figcaption><span>Hermanos</span><span>✨</span></figcaption></figure>
           <figure class="memory-card" data-category="hermanos infancia"><img src="isisyizan3.png" alt="Izan con Isis cuando eran niños" /><figcaption><span>Infancia</span><span>📸</span></figcaption></figure>
@@ -1091,7 +1093,7 @@
           <figure class="memory-card" data-category="familia"><img src="familia1.png" alt="Izan con familia" /><figcaption><span>Familia</span><span>🌿</span></figcaption></figure>
           <figure class="memory-card" data-category="familia"><img src="familia2.png" alt="Izan con familia en selfie" /><figcaption><span>Familia</span><span>💙</span></figcaption></figure>
           <figure class="memory-card" data-category="familia"><img src="familia3.png" alt="Izan con familia en Montserrat" /><figcaption><span>Familia</span><span>⛰️</span></figcaption></figure>
-          <figure class="memory-card" data-category="izan"><img src="izan4.png" alt="Foto de Izan" onerror="this.src='isisyizan5.png'" /><figcaption><span>Izan</span><span>⌚</span></figcaption></figure>
+          <figure class="memory-card" data-category="izan"><img src="izan4.png" alt="Foto de Izan" /><figcaption><span>Izan</span><span>⌚</span></figcaption></figure>
         </div>
       </div>
     </section>
@@ -1130,104 +1132,118 @@
   </div>
 
   <script>
-    const music = document.getElementById("bgMusic");
-    const musicBtn = document.getElementById("musicBtn");
+    document.addEventListener("DOMContentLoaded", () => {
+      const music = document.getElementById("bgMusic");
+      const musicBtn = document.getElementById("musicBtn");
 
-    musicBtn.addEventListener("click", async () => {
-      try {
-        if (music.paused) {
-          await music.play();
-          musicBtn.textContent = "Música ⏸";
-        } else {
-          music.pause();
-          musicBtn.textContent = "Música ▶";
-        }
-      } catch (error) {
-        musicBtn.textContent = "Sube musica-izan.mp3";
+      if (music && musicBtn) {
+        musicBtn.addEventListener("click", async () => {
+          try {
+            if (music.paused) {
+              await music.play();
+              musicBtn.textContent = "Música ⏸";
+            } else {
+              music.pause();
+              musicBtn.textContent = "Música ▶";
+            }
+          } catch (error) {
+            musicBtn.textContent = "Sube musica-izan.mp3";
+          }
+        });
       }
-    });
 
-    const revealElements = document.querySelectorAll(".reveal");
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14 });
+      const revealElements = document.querySelectorAll(".reveal");
 
-    revealElements.forEach((element) => revealObserver.observe(element));
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.14 });
 
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const memoryCards = Array.from(document.querySelectorAll(".memory-card"));
+        revealElements.forEach((element) => revealObserver.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add("visible"));
+      }
 
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const memoryCards = Array.from(document.querySelectorAll(".memory-card"));
 
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
 
-        memoryCards.forEach((card) => {
-          const categories = card.dataset.category.split(" ");
-          const shouldShow = filter === "all" || categories.includes(filter);
-          card.classList.toggle("hidden", !shouldShow);
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          memoryCards.forEach((card) => {
+            const categories = card.dataset.category.split(" ");
+            const shouldShow = filter === "all" || categories.includes(filter);
+            card.classList.toggle("hidden", !shouldShow);
+          });
         });
       });
-    });
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const closeLightbox = document.getElementById("closeLightbox");
-    const prevImage = document.getElementById("prevImage");
-    const nextImage = document.getElementById("nextImage");
-    let activeIndex = 0;
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const closeLightbox = document.getElementById("closeLightbox");
+      const prevImage = document.getElementById("prevImage");
+      const nextImage = document.getElementById("nextImage");
+      let activeIndex = 0;
 
-    function visibleCards() {
-      return memoryCards.filter((card) => !card.classList.contains("hidden"));
-    }
+      function visibleCards() {
+        return memoryCards.filter((card) => !card.classList.contains("hidden"));
+      }
 
-    function openImage(index) {
-      const cards = visibleCards();
-      if (!cards.length) return;
-
-      activeIndex = (index + cards.length) % cards.length;
-      const img = cards[activeIndex].querySelector("img");
-      lightboxImage.src = img.src;
-      lightboxImage.alt = img.alt;
-      lightbox.classList.add("active");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeImage() {
-      lightbox.classList.remove("active");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImage.src = "";
-      document.body.style.overflow = "";
-    }
-
-    memoryCards.forEach((card) => {
-      card.addEventListener("click", () => {
+      function openImage(index) {
         const cards = visibleCards();
-        openImage(cards.indexOf(card));
+        if (!cards.length || !lightbox || !lightboxImage) return;
+
+        activeIndex = (index + cards.length) % cards.length;
+        const img = cards[activeIndex].querySelector("img");
+
+        lightboxImage.src = img.currentSrc || img.src;
+        lightboxImage.alt = img.alt || "Foto ampliada";
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeImage() {
+        if (!lightbox || !lightboxImage) return;
+
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImage.src = "";
+        document.body.style.overflow = "";
+      }
+
+      memoryCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const cards = visibleCards();
+          openImage(cards.indexOf(card));
+        });
       });
-    });
 
-    closeLightbox.addEventListener("click", closeImage);
-    prevImage.addEventListener("click", () => openImage(activeIndex - 1));
-    nextImage.addEventListener("click", () => openImage(activeIndex + 1));
+      if (closeLightbox) closeLightbox.addEventListener("click", closeImage);
+      if (prevImage) prevImage.addEventListener("click", () => openImage(activeIndex - 1));
+      if (nextImage) nextImage.addEventListener("click", () => openImage(activeIndex + 1));
 
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) closeImage();
-    });
+      if (lightbox) {
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeImage();
+        });
+      }
 
-    document.addEventListener("keydown", (event) => {
-      if (!lightbox.classList.contains("active")) return;
-      if (event.key === "Escape") closeImage();
-      if (event.key === "ArrowLeft") openImage(activeIndex - 1);
-      if (event.key === "ArrowRight") openImage(activeIndex + 1);
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox || !lightbox.classList.contains("active")) return;
+        if (event.key === "Escape") closeImage();
+        if (event.key === "ArrowLeft") openImage(activeIndex - 1);
+        if (event.key === "ArrowRight") openImage(activeIndex + 1);
+      });
     });
   </script>
 </body>
